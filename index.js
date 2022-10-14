@@ -342,6 +342,7 @@ class WhatsappCloud {
         headerText,
         bodyText,
         footerText,
+        actionText,
         listOfSections,
     }) {
         this._mustHaverecipientPhone(recipientPhone);
@@ -352,6 +353,8 @@ class WhatsappCloud {
             throw new Error('"headerText" is required in making a request');
         if (!footerText)
             throw new Error('"footerText" is required in making a request');
+        if (!actionText)
+            throw new Error('"actionText" is required in making a request')
 
         let totalNumberOfItems = 0;
         let validSections = listOfSections
@@ -433,7 +436,7 @@ class WhatsappCloud {
                     text: footerText,
                 },
                 action: {
-                    button: 'Select a product',
+                    button: actionText,
                     sections: validSections,
                 },
             },
