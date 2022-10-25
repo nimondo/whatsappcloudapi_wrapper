@@ -92,6 +92,8 @@ module.exports = ({ requestBody, currentWABA_ID }) => {
             msgType = 'sticker_message';
         } else if (message.type === 'image') {
             msgType = 'media_message';
+        }else if (message.type === 'audio') {
+            msgType = 'audio_message';
         } else if (message.location) {
             msgType = 'location_message';
         } else if (message.contacts) {
