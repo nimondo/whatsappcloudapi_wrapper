@@ -590,7 +590,7 @@ class WhatsappCloud {
         };
     }
 
-    async sendDocument({ recipientPhone, caption, file_path, url }) {
+    async sendDocument({ recipientPhone, caption, file_path, url, file_name }) {
         this._mustHaverecipientPhone(recipientPhone);
         if (file_path && url) {
             throw new Error(
@@ -615,6 +615,7 @@ class WhatsappCloud {
             type: 'document',
             document: {
                 caption: caption || '',
+                filename: file_name || "Unnamed file",
             },
         };
 
